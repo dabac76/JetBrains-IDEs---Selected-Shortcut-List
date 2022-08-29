@@ -1,0 +1,218 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[landscape,margin=1cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome}
+\usepackage[default, medium]{raleway}
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+
+\setlength{\columnsep}{0pt}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\definecolor{customcolor}{HTML}{616AC5}
+\colorlet{altercol}{customcolor!15!white}
+
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{hyperref}
+
+%--------------------------------------------------------------------------------
+\tcbuselibrary{most,listingsutf8,minted}
+
+\tcbset{tcbox width=auto,left=1mm,top=1mm,bottom=1mm,
+right=1mm,boxsep=1mm,middle=1pt}
+
+\newenvironment{mycolorbox}[2]{%
+\begin{tcolorbox}[grow to left by=-1em,grow to right by=-1em,capture=minipage,fonttitle=\large\bfseries, enhanced jigsaw,boxsep=1mm,colback=#1!30!white,on line,tcbox width=auto, toptitle=0mm,colframe=#1,opacityback=0.25,nobeforeafter,title=#2]%
+}{\end{tcolorbox}\\[0.2em]}
+
+\newenvironment{textbox}[1]{\begin{mycolorbox}{customcolor}{#1}}{\end{mycolorbox}}
+
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\newcommand{\scut}[1]{\textsc{#1}}
+
+\newcolumntype{C}{>{\setlength\hsize{.75\hsize}\raggedright\arraybackslash}X}
+\newcolumntype{D}{>{\setlength\hsize{.75\hsize}\raggedleft\arraybackslash}X}
+\newcommand{\mcolx}[1]{\multicolumn{2}{>{\center\hsize=\dimexpr1.5\hsize+2\tabcolsep+\arrayrulewidth\relax}X|}{#1}}%
+%--------------------------------------------------------------------------------
+
+\begin{document}
+\small
+\begin{multicols}{2}
+[\centering{\textbf{Selected Shortcuts - JetBrains IDEs (for VSCODE install IntelliJ keymap plugin)}}]
+
+\begin{textbox}{IDE Navigation}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{$2\times$ shift}	&	Action dialogue (search everywhere)	\\
+\scut{alt + (shift) + \textleftarrow\textrightarrow}	&	Select previous / next tab (all tab groups) \\
+\scut{ctrl + (shift) + f4}	&	Close tab (active tool window)	\\
+\scut{ctrl + e}	&	Recent files	\\
+\scut{ctrl + shift + n}	&	Go to file	\\
+\scut{alt + home}	&	Go to navigation bar	\\
+\scut{ctrl + shift + f12}	&	Maximize editor (close all tool windows)	\\
+\scut{ctrl + tab + \textdownarrow\textuparrow\textleftarrow\textrightarrow}	&	Switcher (editor tabs, tool windows), hold ctrl	\\
+\scut{ctrl + \`}	&	Mode switcher (View mode, Color schemes, keymaps)	\\
+\scut{alt + 1 \dots 0}	&	Tool windows. 0:commit 1:project 2:favorites 3:find 4:run 6:problems 7:structure 8:services 9:vcs	\\
+\scut{ctrl + alt + s}	&	Settings	\\
+\scut{ctrl + alt + shift + s}	&	Project structure	\\
+\scut{ctrl + alt + Y}	&	Synchronize
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Code Editing}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{ctrl + (shift) + \textvisiblespace}	&	Basic (smart - filter by expected type) completion \\
+\scut{enter / tab}	&	Choose / choose\&replace lookup item	\\
+\scut{ctrl + shift + enter}	&	Complete current statement (try enter more times)	\\
+\scut{ctrl + alt + t}	&	Surround line or selection with loop, try, etc ...	\\
+\scut{ctrl + o}	&	Override methods	\\
+\scut{ctrl + i}	&	Implement methods	\\
+\scut{alt + ins}	&	Generate code \\
+\scut{shift + f6}	&	Rename	\\
+\scut{ctrl + alt + l}	&	Reformat all or selected code	\\
+\scut{ctrl + (shift) + w}	&	Select successively increasing (decreasing) blocks	\\
+\scut{ctrl + shift + ] / [}	&	Select till code block end / start	\\
+\scut{ctrl + (shift) + /}	&	Toggle line (block) comment	
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Text Editing}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{ctrl + alt + i}	&	Auto-indent line(s)	\\
+\scut{ctrl + d}	&	Duplicate line / selection	\\
+\scut{ctrl + y}	&	Delete line	\\
+\scut{ctrl + enter}	&	Smart split line	\\
+\scut{shift + j}	&	Smart join line	\\
+\scut{shift + enter}	&	Start new line, don't split after caret position	\\
+\scut{ctrl + alt + enter}	&	New line before current	\\
+\scut{shift + enter}	&	New line without spliting line	\\
+\scut{ctrl + del / bspace}	&	Delete to word end / start	\\
+\scut{alt + shift + click}	&	Clone caret (no keyboard shortcut by default) \\
+\scut{alt + shift + ins}	&	Column selection mode	\\
+\scut{alt + shift + \textuparrow{}\textdownarrow}	&	Not set by default (Move line up / down	in vscode) \\
+\scut{ctrl + shift + \textuparrow{}\textdownarrow}	&	Move line or statement up / down	\\
+\scut{alt + (shift) + j}	&	Select next (unselect current) occurence	\\
+\scut{ctrl + alt + shift + j}	&	Select all occurrences	\\
+\scut{(shift) + f3}	&	Find next (previous) occurrence	\\
+\scut{ctrl + (shift) + L}	&	Move next (previous) occurrence	\\
+\scut{alt + shift + \textuparrow{}\textdownarrow}	&	Previous / next occurence	
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Search}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{ctrl + (shift) + f / r}	&	Find / replace (in path) 	\\
+\scut{(shift) + f3}	&	Move to next (previous) find	
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Diff tool}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{(shift) + f7}	&	Next (previous) diff \\
+\scut{alt + shift + \textleftarrow\textrightarrow}	& Accept right / left side (opposite of arrow sign) \\
+\scut{ctrl + alt + z} & Rollback
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Code Navigation}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{ctrl + q}	&	Quick documentation lookup	\\
+\scut{shift + f1}	&	External documentation if any	\\
+\scut{ctrl + f1}	&	Error description	\\
+\scut{alt + enter}	&	Show intention actions and quick fixes	\\
+\scut{alt + q}	&	Show context info	\\
+\scut{ctrl + p}	&	Parameter info (within method call arguments)	\\
+\scut{ctrl + alt + 7 } &	Show usages (dropdown window)	\\  
+\scut{alt + shift + 7}	&	Find usages	(tool window) \\
+\scut{ctrl + hover}	&	Brief code definition info 	\\
+\scut{ctrl + shift + i}	&	Quick definition lookup	\\
+\scut{ctrl + (shift) + f7}	&	Find (highlight) usages in file	\\
+\scut{ctrl + (alt/shift) + b}	&	Go to declaration (type declaration / implementation)	\\
+\scut{ctrl + n} &	Go to class	\\
+\scut{ctrl + alt + shift + n}	&	Go to symbol	\\
+\scut{alt + \textdownarrow{}\textuparrow}	&	Go to next / previous method	\\
+\scut{ctrl + u}	&	Go to super method / class	\\
+\scut{ctrl + ] / [}	&	Go to block end / start (\scut{ctrl + shift} to select)	\\
+\scut{ctrl + g}	&	Go to line	\\
+\scut{ctrl + f12} &	File structure popup	\\
+\scut{ctrl + (alt/shift) + h}	&	Type (method / call) hierarchy	\\
+\scut{ctrl + (alt) + + / -}	&	Expand / collapse code block (recursively) 	\\
+\scut{ctrl + shift + + / -}	&	Expand / collapse all	\\
+\scut{(ctrl) + f11}	&	Toggle bookmark (with mnemonic)	
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Debugging}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.38\hsize}\raggedleft\arraybackslash}X|X}
+\scut{(shift) + f7}	&	(Smart) step into	\\
+\scut{f8 / shift + f8}	&	Step over / step out	\\
+\scut{alt + shift + 9}	&	Run to caret (or click line number in the gutter)	\\
+\scut{f9}	&	Resume	\\
+\scut{ctrl + alt + 8}	&	Quick evaluate selection (or \scut{ctrl + shift + alt + click})	\\
+\scut{alt + shift + f8}	&	Evaluate expression dialog	\\
+\scut{ctrl + (shift) + f8}	&	Toggle (view) breakpoint	
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Code Execution}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{>{\setlength\hsize{.73\hsize}\raggedleft\arraybackslash}X|XX}
+\scut{ctrl + (shift) + f9}	& %
+Build project. Building is:
+\begin{itemize}[leftmargin=*, nosep]
+    \item coarse: project or module or artifact level,
+    \item dirty: compiles modified \hphantom{ i } only, 
+    \item transitive: all dependencies compiled.
+\end{itemize} & %
+(Compile selected):
+\begin{itemize}[leftmargin=*, nosep]
+    \item granular: only given scope (files/package/module),
+    \item clean: compiles all within scope,
+    \item not transitive. \hfill\hphantom{.}\linebreak
+\end{itemize} \\
+\scut{ctrl + shift + f10} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep}X}{Run context configuration} \\
+\scut{(alt) + shift + f10} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep}X}{Run (\dots choose configuration)} \\
+\scut{(alt) + shift + f9} & \multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep}X}{Debug (\dots choose configuration)} \\
+\end{tabularx}}}
+\end{textbox}
+
+\begin{textbox}{Python Scientific/Jupyter Mode \& Big Data Plugin (Zeppelin)}
+{\rowcolors{1}{}{altercol}
+{\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{CD|X}
+\textbf{SciMode} & \textbf{BDT} & \\
+& \scut{ctrl + shift + l} & Clear cell \\
+& \scut{ctrl + alt + d} & Delete cell \\
+& \scut{ctrl + alt + c} & Stop cell \\
+\scut{alt + shift + E} && Execute selection in cell \\
+\scut{alt + shift + enter} && Debug cell \\
+\mcolx{\scut{ctrl + \textuparrow\textdownarrow}} & Select cell above / below \\
+\mcolx{\scut{alt + shift + \textuparrow\textdownarrow}} & Insert cell above / below \\
+\mcolx{\scut{ctrl + (alt) + shift + enter}} & Run all below (above) \\
+\scut{shift + enter} & \scut{ctrl + enter} & Run and select next cell \\
+\scut{ctrl + enter} & \scut{shift + enter} & Run cell
+\end{tabularx}}}
+\end{textbox}
+
+\end{multicols}
+\end{document}
